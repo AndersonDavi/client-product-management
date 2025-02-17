@@ -1,0 +1,25 @@
+<div class="cart-container">
+  <h2>Shopping Cart</h2>
+  <div *ngIf="cartItems.length === 0">Your cart is empty</div>
+  <div class="cart-item">
+    <p>Product</p>
+    <p>Quantity</p>
+    <p>Price</p>
+  </div>
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <p>{{ item.product.name }}</p>
+    <p>{{ item.quantity }}</p>
+    <p>{{ item.product.price | currency }}</p>
+  </div>
+  <div class="cart-total">
+    <p>Total: {{ total | currency }}</p>
+  </div>
+  <div class="w-full flex justify-evenly">
+    <button (click)="clearCart()" class="button-secondary h-10 px-6 mt-10">
+      Clear Cart
+    </button>
+    <button (click)="createInvoice()" class="button-primary h-10 px-6 mt-10">
+      Create Invoice
+    </button>
+  </div>
+</div>

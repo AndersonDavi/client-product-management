@@ -2,12 +2,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { API_URL } from '../../config/config';
 import { catchError, map, of } from 'rxjs';
+import { ShoppingCartService } from './shopping-cart.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cartService: ShoppingCartService) {}
 
   // Product Methods
   getProducts() {
@@ -18,7 +19,6 @@ export class ProductService {
         return resp.products;
       }),
       catchError((err: any) => {
-        console.log(err.error.message);
         return of([]);
       })
     );
@@ -32,14 +32,12 @@ export class ProductService {
         return resp;
       }),
       catchError((err: any) => {
-        console.log(err.error.message);
         return of(null);
       })
     );
   }
 
   createProduct(data: any) {
-    console.log(data);
     
     const headers = this.getAuthHeaders();
     let URL = API_URL + 'product/create';
@@ -48,7 +46,6 @@ export class ProductService {
         return resp.product;
       }),
       catchError((err: any) => {
-        console.log(err.error.message);
         return of(null);
       })
     );
@@ -62,7 +59,6 @@ export class ProductService {
         return resp.product;
       }),
       catchError((err: any) => {
-        console.log(err.error.message);
         return of(null);
       })
     );
@@ -76,10 +72,13 @@ export class ProductService {
         return resp.product;
       }),
       catchError((err: any) => {
-        console.log(err.error.message);
         return of(null);
       })
     );
+  }
+
+  addToCart(product: any, quantity: number = 1) {
+    this.cartService.addToCart(product, quantity);
   }
 
   // Helper Methods

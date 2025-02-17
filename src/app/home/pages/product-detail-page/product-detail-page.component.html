@@ -16,7 +16,12 @@
       <span> {{ size }} </span>
       }
     </div>
-    <button class="border border-red-200 text-white h-10 bg-red-400">
+    <label for="quantity">Quantity:</label>
+    <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="product.stock" />
+    <button
+      class="border border-red-200 text-white h-10 bg-red-400"
+      (click)="addToCart()"
+    >
       ADD TO CART
     </button>
   </div>

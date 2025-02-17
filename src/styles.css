@@ -4,3 +4,10 @@
 * {
   box-sizing: border-box;
 }
+.button-primary {
+  @apply bg-gradient-to-r from-primary-200 to-primary-800 rounded-lg text-white font-semibold hover:from-primary-800 hover:to-primary-500 transition-all duration-150 hover:shadow-primary-500/25 hover:shadow-md;
+}
+
+.button-secondary {
+  @apply bg-white rounded-lg  font-semibold hover:from-primary-800 hover:to-primary-500 transition-all duration-150 hover:shadow-primary-500/25 hover:shadow-md text-black border border-black;
+}

@@ -1,29 +1,14 @@
 import { CommonModule } from '@angular/common';
-import {
-  Component,
-  HostListener,
-  inject,
-} from '@angular/core';
-// import { MatButtonModule } from '@angular/material/button';
-// import { MatSidenavModule } from '@angular/material/sidenav';
-// import { SidebarComponent } from '../../../shared/components/sidebar/sidebar.component';
+import { Component, HostListener, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { NavbarComponent } from "../components/navbar/navbar.component";
-import { FooterComponent } from "../components/footer/footer.component";
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { FooterComponent } from '../components/footer/footer.component';
+import { ShoppingCartFloatButtonComponent } from "../components/shopping-cart-float-button/shopping-cart-float-button.component";
 
 @Component({
   selector: 'app-layout-page',
   standalone: true,
-  imports: [
-    CommonModule,
-    // MatSidenavModule,
-    // MatButtonModule,
-    // SidebarComponent,
-    RouterModule,
-    NavbarComponent,
-    FooterComponent
-],
-
+  imports: [CommonModule, RouterModule, NavbarComponent, FooterComponent, ShoppingCartFloatButtonComponent],
   templateUrl: './layout-page.component.html',
   styleUrl: './layout-page.component.css',
 })

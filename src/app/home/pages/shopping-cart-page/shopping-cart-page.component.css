@@ -1,0 +1,29 @@
+:host {
+  display: block;
+}
+
+.cart-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+.cart-item p {
+  @apply w-1/3 text-center;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  font-weight: bold;
+}
+
+

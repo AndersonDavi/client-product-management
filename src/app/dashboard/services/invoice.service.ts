@@ -45,6 +45,18 @@ export class InvoiceService {
     );
   }
 
+  createInvoice(invoiceData: any) {
+    const headers = this.getAuthHeaders();
+    let URL = API_URL + 'invoice/create';
+    return this.http.post(URL, invoiceData, { headers }).pipe(
+      map((resp: any) => resp.invoice),
+      catchError((err: any) => {
+        console.log(err.error.message);
+        return of(null);
+      })
+    );
+  }
+
   private getAuthHeaders(): HttpHeaders {
     let token = localStorage.getItem('token');
     if (token) {
