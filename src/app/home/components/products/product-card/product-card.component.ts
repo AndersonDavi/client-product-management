@@ -20,6 +20,8 @@ export class ProductCardComponent {
   constructor(private router: Router) {}
 
   goToProductDetail(id: number) {
-    this.router.navigateByUrl(`home/product/${id}`);
+    this.router.navigateByUrl(`home/product/${id}`).then(() => {
+      window.scrollTo(0, 0);
+    });
   }
 }
