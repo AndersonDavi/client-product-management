@@ -1,0 +1,6 @@
+.bg-gradient-b {
+  @apply bg-gradient-to-b from-gray-50/95 to-gray-100/95;
+}
+.bg-gradient-t {
+  @apply bg-gradient-to-t from-gray-50/95 to-gray-100/95;
+}

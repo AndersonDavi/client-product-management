@@ -1,0 +1,28 @@
+<div class="product-detail">
+  <div class="products-img-container">
+    <img
+      [src]="product.image"
+      alt="product-image"
+      class="size-full max-h-[700px]"
+    />
+  </div>
+  <div class="product-info">
+    <p>{{ product.name }}</p>
+    <span> USD{{ product.price | currency }} </span>
+
+    <p>size</p>
+    <div class="product-sizes">
+      @for (size of product.sizes; track $index) {
+      <span> {{ size }} </span>
+      }
+    </div>
+    <button class="border border-red-200 text-white h-10 bg-red-400">
+      ADD TO CART
+    </button>
+  </div>
+</div>
+
+<div class="other-products">
+  <h3>You may also like</h3>
+  <app-product-list />
+</div>

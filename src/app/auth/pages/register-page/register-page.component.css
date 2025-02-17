@@ -1,0 +1,23 @@
+.form-field {
+  @apply flex flex-col w-2/3;
+}
+
+.form-field * {
+  @apply my-1;
+}
+
+.form-field input {
+  @apply border border-solid border-primary-200 min-h-10 px-2 selection:border-primary-500 focus:outline-primary-800   hover:bg-primary-200/10 transition-all duration-100;
+}
+
+.form-field button {
+  @apply h-10 rounded-lg font-semibold hover:from-primary-800 hover:to-primary-500 transition-all duration-150 hover:shadow-primary-500/25 hover:shadow-md;
+}
+
+.form-field .button-primary {
+  @apply bg-gradient-to-r from-primary-200 to-primary-800 h-10 rounded-lg text-white font-semibold hover:from-primary-800 hover:to-primary-500 transition-all duration-150 hover:shadow-primary-500/25 hover:shadow-md mt-10;
+}
+
+.form-field .button-secondary {
+  @apply bg-white h-10 rounded-lg  font-semibold hover:from-primary-800 hover:to-primary-500 transition-all duration-150 hover:shadow-primary-500/25 hover:shadow-md text-black border border-black mt-2 ;
+}

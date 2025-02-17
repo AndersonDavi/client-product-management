@@ -1,0 +1,49 @@
+<div class="edit-profile">
+  <div class="profile-info w-2/3">
+    <form
+      [formGroup]="editForm"
+      autocomplete="on"
+      (ngSubmit)="updateUser()"
+      class="rounded-md border border-solid border-primary-500/25 size-full flex flex-col justify-center items-center py-5"
+    >
+      <div class="flex mb-10">
+        <h3 class="my-auto text-3xl font-black">EDIT PROFILE</h3>
+      </div>
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          name="name"
+          id="name"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="email">Email</label>
+        <input
+          formControlName="email"
+          type="text"
+          name="email"
+          id="email"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field" *ngIf="isAdmin">
+        <label for="role">Role</label>
+        <select
+          formControlName="role"
+          name="role"
+          id="role"
+          class="selection:bg-primary-200/20"
+        >
+          <option value="user">User</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <button type="submit" class="button-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

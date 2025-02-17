@@ -1,0 +1,89 @@
+<div
+  class="w-full border border-solid border-primary-500 h-[100vh] flex justify-center items-center"
+>
+  <form
+    [formGroup]="myForm"
+    autocomplete="on"
+    (ngSubmit)="register()"
+    class="rounded-md border border-solid border-primary-500/25 h-auto w-2/3 max-w-[475px] flex flex-col justify-center items-center py-5"
+  >
+    <div class="flex mb-10">
+      <img src="./assets/icons/logo.png" alt="" class="size-10" />
+      <h3 class="my-auto text-3xl font-black">SHOP</h3>
+    </div>
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          name="name"
+          id="name"
+          class="selection:bg-primary-200/20"
+        />
+        <div *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
+          <small *ngIf="myForm.get('name')?.errors?.['required']">Name is required</small>
+        </div>
+      </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input
+        formControlName="email"
+        type="text"
+        name="email"
+        id="email"
+        class="selection:bg-primary-200/20"
+      />
+      <div *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
+        <small *ngIf="myForm.get('email')?.errors?.['required']">Email is required</small>
+        <small *ngIf="myForm.get('email')?.errors?.['email']">Invalid email format</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        name="password"
+        id="password"
+        class="selection:bg-primary-200/20"
+      />
+      <div *ngIf="myForm.get('password')?.invalid && myForm.get('password')?.touched">
+        <small *ngIf="myForm.get('password')?.errors?.['required']">Password is required</small>
+        <small *ngIf="myForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="password2">Repeat password</label>
+      <input
+        type="password"
+        formControlName="password2"
+        name="password2"
+        id="password2"
+        class="selection:bg-primary-200/20"
+      />
+      <div *ngIf="myForm.errors?.['mismatch'] && myForm.get('password2')?.touched">
+        <small>Passwords do not match</small>
+      </div>
+    </div>
+    <div class="form-field">
+      <button type="submit" class="button-primary">Create account</button>
+    </div>
+    <div class="form-field">
+      <button type="submit" class="button-secondary flex items-center">
+        <img
+          src="./assets/icons/google-color-svgrepo-com.svg"
+          alt=""
+          class="size-5 mx-4 absolute"
+        />
+        <span class="w-full">Create account with Google</span>
+      </button>
+    </div>
+    <p>or</p>
+
+    <div class="form-field">
+      <button type="submit" class="button-secondary" routerLink="/auth/login">
+        login
+      </button>
+    </div>
+  </form>
+</div>

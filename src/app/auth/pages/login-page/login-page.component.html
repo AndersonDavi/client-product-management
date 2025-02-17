@@ -1,0 +1,54 @@
+<div
+  class="w-full border border-solid border-primary-500 h-[100vh] flex justify-center items-center"
+>
+  <form
+    [formGroup]="myForm"
+    autocomplete="on"
+    (ngSubmit)="login()"
+    class="rounded-md border border-solid border-primary-500/25 h-auto w-2/3 max-w-[475px] flex flex-col justify-center items-center py-5"
+  >
+    <div class="flex mb-10">
+      <img src="./assets/icons/logo.png" alt="" class="size-10" />
+      <h3 class="my-auto text-3xl font-black">SHOP</h3>
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input
+        formControlName="email"
+        type="text"
+        name="email"
+        id="email"
+        class="selection:bg-primary-200/20"
+      />
+    </div>
+    <div class="form-field">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        name="password"
+        id="password"
+        class="selection:bg-primary-200/20"
+      />
+    </div>
+    <p class="text-right w-2/3">Forgot your password?</p>
+
+    <div class="form-field">
+      <button type="submit" class="button-primary">Login</button>
+    </div>
+    <div class="form-field">
+      <button type="submit" class="button-secondary flex items-center">
+        <img
+          src="./assets/icons/google-color-svgrepo-com.svg"
+          alt=""
+          class="size-5 mx-4 absolute"
+        />
+        <span class="w-full">Login with Google</span>
+      </button>
+    </div>
+    <p>or</p>
+    <div class="form-field">
+      <button type="submit" class="button-secondary" routerLink="/auth/register">Register</button>
+    </div>
+  </form>
+</div>

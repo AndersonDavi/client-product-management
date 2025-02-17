@@ -1,0 +1,95 @@
+<div class="product-detail">
+  <div class="product-info w-2/3">
+    <form
+      [formGroup]="editForm"
+      autocomplete="on"
+      (ngSubmit)="updateProduct()"
+      class="rounded-md border border-solid border-primary-500/25 size-full flex flex-col justify-center items-center py-5"
+    >
+      <div class="flex mb-10">
+        <h3 class="my-auto text-3xl font-black">EDIT PRODUCT</h3>
+      </div>
+
+      <div class="form-field">
+        <label for="name">Name</label>
+        <input
+          formControlName="name"
+          type="text"
+          name="name"
+          id="name"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="description">Description</label>
+        <input
+          formControlName="description"
+          type="text"
+          name="description"
+          id="description"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="price">Price</label>
+        <input
+          formControlName="price"
+          type="number"
+          name="price"
+          id="price"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="rating">Rating</label>
+        <input
+          formControlName="rating"
+          type="number"
+          name="rating"
+          id="rating"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="sizes">Sizes</label>
+        <input
+          formControlName="sizes"
+          type="text"
+          name="sizes"
+          id="sizes"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="stock">Stock</label>
+        <input
+          formControlName="stock"
+          type="number"
+          name="stock"
+          id="stock"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field">
+        <label for="image">Image URL</label>
+        <input
+          formControlName="image"
+          type="text"
+          name="image"
+          id="image"
+          class="selection:bg-primary-200/20"
+        />
+      </div>
+      <div class="form-field w-full">
+        <img
+          [src]="editForm.get('image')?.value"
+          alt="Product Image"
+          class="image-preview w-full"
+        />
+      </div>
+      <div class="form-field">
+        <button type="submit" class="button-primary">Update</button>
+      </div>
+    </form>
+  </div>
+</div>

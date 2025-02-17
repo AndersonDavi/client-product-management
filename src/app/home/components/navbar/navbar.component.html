@@ -1,0 +1,13 @@
+<div
+  class="w-full h-16 p-2 fixed flex border-b border-gray-300/50 bg-white z-50"
+>
+  <img src="./assets/icons/logo.png" alt="logo" class="size-10" />
+  <h3 class="mt-0.5 text-3xl font-black">SHOP</h3>
+
+  <ul class="flex gap-4 w-full bg-yellow-50/5 items-center justify-end px-4">
+    <li routerLink="/home/products">BEST SELLERS</li>
+    <li>YOUR ORDERS</li>
+    <li routerLink="/home/profile">PROFILE</li>
+    <li (click)="logout()">LOGOUT</li>
+  </ul>
+</div>
