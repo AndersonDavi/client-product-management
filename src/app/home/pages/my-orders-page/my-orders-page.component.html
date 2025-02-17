@@ -1,11 +1,6 @@
-<div class="card">
-  <div class="card-header">
-    Invoices in the Last Month: {{ lastMonthPurchases }}
-  </div>
-</div>
-
+<h2 class="w-full text-center font-bold text-3xl">My orders</h2>
 <div class="invoice-list">
-  <div *ngFor="let invoice of invoices" class="invoice-item">
+  <div *ngFor="let invoice of invoices" class="invoice-item mt-4">
     <p>Invoice ID: {{ invoice._id }}</p>
     <p>Date: {{ invoice.date | date }}</p>
     <p>Products:</p>

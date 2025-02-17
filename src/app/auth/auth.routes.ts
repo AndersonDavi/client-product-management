@@ -5,6 +5,7 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 export const routes: Routes = [
   {
     path: '',
+    canActivate:[],
     children: [
       { path: 'login', component: LoginPageComponent },
       { path: 'register', component: RegisterPageComponent },
