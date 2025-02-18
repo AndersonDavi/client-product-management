@@ -83,8 +83,6 @@ export class UserService {
 
   deleteUser(id: string, newStatus: boolean) {
     const headers = this.getAuthHeaders();
-    console.log('newStatus', headers);
-    
     let URL = API_URL + `user/delete/${id}`;
     return this.http.put(URL, { newStatus }, { headers }).pipe(
       map((resp: any) => {

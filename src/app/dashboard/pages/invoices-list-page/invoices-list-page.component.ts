@@ -17,8 +17,6 @@ export class InvoicesListPageComponent implements OnInit {
 
   async ngOnInit() {
     const userId = localStorage.getItem('user');
-    console.log(userId);
-
     await this.invoiceService
       .getAllPurchasesLastMonth()
       .subscribe((invoices) => {
@@ -26,7 +24,6 @@ export class InvoicesListPageComponent implements OnInit {
       });
 
     await this.invoiceService.countAllinvoicesLastMonth().subscribe((count) => {
-      console.log(count);
       this.lastMonthPurchases = count;
     });
   }

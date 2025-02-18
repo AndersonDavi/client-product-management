@@ -10,8 +10,6 @@ export class InvoiceService {
   constructor(private http: HttpClient) {}
 
   getUserInvoices(userId: string) {
-    console.log(userId);
-    
     const headers = this.getAuthHeaders();
     let URL = API_URL + `invoice/user/${userId}`;
     return this.http.get(URL, { headers }).pipe(

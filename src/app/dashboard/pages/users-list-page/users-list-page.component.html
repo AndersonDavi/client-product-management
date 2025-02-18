@@ -1,20 +1,29 @@
-<div class="users-container flex">
+<div class="users-container flex flex-col md:flex-row">
   <div class="users-list">
     @for (user of users; track $index) {
     <div class="user-card">
-      <img src="./assets/icons/user-svgrepo-com.svg" alt="" />
-      <div class="p-2">
+      <!-- <img
+        src="./assets/icons/user-svgrepo-com.svg"
+        alt="user-icon"
+        class="size-3 m-2"
+      /> -->
+      <div class="flex flex-col items-start">
         <p>{{ user.name }}</p>
         <span>{{ user.email }}</span>
         <p>Role {{ user.role }}</p>
-        <button (click)="goToUpdateUser(user._id)" class="button-primary">Update</button>
-        <br>
-        <button (click)="deleteUser(user._id)" class="button-danger">Delete</button>
+        <div class="flex justify-evenly mt-auto gap-3">
+          <button (click)="goToUpdateUser(user._id)" class="button-primary">
+            Update
+          </button>
+          <button (click)="deleteUser(user._id)" class="button-danger">
+            Delete
+          </button>
+        </div>
       </div>
     </div>
     }
   </div>
-  <div class="user-form w-full p-10">
+  <div class="user-form md:w-1/2 p-10">
     <form
       [formGroup]="myForm"
       autocomplete="on"

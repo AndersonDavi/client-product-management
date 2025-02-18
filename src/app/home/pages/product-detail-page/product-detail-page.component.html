@@ -7,17 +7,30 @@
     />
   </div>
   <div class="product-info">
-    <p>{{ product.name }}</p>
-    <span> USD{{ product.price | currency }} </span>
-
-    <p>size</p>
-    <div class="product-sizes">
-      @for (size of product.sizes; track $index) {
-      <span> {{ size }} </span>
-      }
+    <div class="">
+      <p>{{ product.name }}</p>
+      <span> USD{{ product.price | currency }} </span>
     </div>
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" [(ngModel)]="quantity" min="1" [max]="product.stock" />
+    <div class="">
+      <p>size</p>
+      <div class="product-sizes">
+        @for (size of product.sizes; track $index) {
+        <span> {{ size }} </span>
+        }
+      </div>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label for="quantity">Quantity:</label>
+      <input
+        type="number"
+        id="quantity"
+        [(ngModel)]="quantity"
+        min="1"
+        [max]="product.stock"
+        class="w-full"
+      />
+      <p>Available: {{ product.stock }}</p>
+    </div>
     <button
       class="border border-red-200 text-white h-10 bg-red-400"
       (click)="addToCart()"

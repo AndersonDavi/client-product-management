@@ -45,17 +45,23 @@ export class RegisterPageComponent {
 
     const { name, email, password } = this.myForm.value;
     const role = 'user'; // Default role
-    this.authService.register({ name, email, password, role }).subscribe((response) => {
-      if (response === true) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Registration Successful',
-          text: 'Your account has been created successfully!',
-          confirmButtonText: 'OK'
-        }).then(() => {
-          this.router.navigate(['/auth/login']);
-        });
-      }
-    });
+    this.authService.register({ name, email, password, role })
+      .subscribe({
+        next: (response) => {
+          if (response === true) {
+            Swal.fire({
+              icon: 'success',
+              title: 'Registration Successful',
+              text: 'Your account has been created successfully!',
+              confirmButtonText: 'OK'
+            }).then(() => {
+              this.router.navigate(['/auth/login']);
+            });
+          }
+        },
+        error: (err) => {
+          Swal.fire('Error', `Registration failed. ${err?.error?.message}`, 'error');
+        }
+      });
   }
 }

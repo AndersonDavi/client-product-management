@@ -7,7 +7,10 @@
     <p>Price</p>
   </div>
   <div *ngFor="let item of cartItems" class="cart-item">
-    <p>{{ item.product.name }}</p>
+    <p class="flex items-center">
+      <img [src]="item.product.image" alt="" class="size-16" />
+      <span class="pl-2">{{ item.product.name }}</span>
+    </p>
     <p>{{ item.quantity }}</p>
     <p>{{ item.product.price | currency }}</p>
   </div>

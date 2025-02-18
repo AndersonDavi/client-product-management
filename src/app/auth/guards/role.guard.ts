@@ -8,8 +8,6 @@ export const roleGuard: CanActivateFn = (route, state) => {
   const userRole = authService.userRole;
   const url = state.url;
 
-  console.log('roleGuard', userRole, url);
-  
   if (userRole === 'admin' && url.includes('/home')) {
     router.navigate(['/dashboard']);
     return false;

@@ -1,5 +1,5 @@
-<div class="flex">
-  <div class="products-list w-1/2">
+<div class="flex flex-col md:flex-row">
+  <div class="products-list md:w-1/2">
     <div *ngFor="let product of products" class="product-card">
       <img [src]="product.image" alt="{{ product.name }}" />
       <h3>{{ product.name }}</h3>
@@ -14,7 +14,7 @@
     </div>
   </div>
 
-  <div class="product-form w-1/2">
+  <div class="product-form md:w-1/2">
     <form
       [formGroup]="productForm"
       autocomplete="on"

@@ -20,8 +20,6 @@ export class MyOrdersPageComponent implements OnInit {
       await this.invoiceService
         .getUserInvoices(userId)
         .subscribe((invoices) => {
-          console.log(userId);
-          console.log(invoices);
           this.invoices = invoices;
         });
     }

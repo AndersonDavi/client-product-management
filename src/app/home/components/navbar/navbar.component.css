@@ -3,7 +3,7 @@
 }
 
 ul li {
-  @apply hover:scale-105 cursor-pointer transition-all duration-100 h-full hover:shadow-sm flex items-center justify-center hover:bg-gradient-to-l hover:from-gray-200/20 hover:to-gray-100/20 select-none active:scale-95;
+  @apply hover:scale-105 cursor-pointer transition-all duration-100 h-full hover:shadow-sm flex items-center justify-center hover:bg-gradient-to-l hover:from-gray-200/20 hover:to-gray-100/20 select-none active:scale-95 hover:border hover:border-gray-300;
 }
 .button-primary{
   @apply hover:text-black border border-black hover:px-3

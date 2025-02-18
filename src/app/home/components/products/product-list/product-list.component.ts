@@ -41,9 +41,7 @@ export class ProductListComponent implements AfterViewInit {
       .getProducts()
       .pipe(takeUntil(this.destroy$))
       .subscribe({
-        next: (response) => {
-          console.log(response);
-        },
+        next: (response) => {},
         error: (error) =>
           console.error('Error al obtener los productos:', error),
       });

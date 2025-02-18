@@ -13,6 +13,7 @@ import {
   ReactiveFormsModule,
   Validators as valid,
 } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-page',
@@ -38,17 +39,17 @@ export class LoginPageComponent implements OnInit {
       this.myForm.markAllAsTouched();
       return;
     }
-    const result = await this.authService
+    this.authService
       .login(email, password)
-      .subscribe((response) => {
-        if (response) {
-          this.authService.getLocalStorage();
-          this.router.navigate(['/home']);
-          console.log('login llmanndo auth', this.authService.userRole);
-
-          console.log(this.authService.userRole);
-        }
+      .subscribe({
+        next: (result) => {
+          if (result === true) {
+            this.router.navigate(['/home']);
+          }
+        },
+        error: (err) => {
+          Swal.fire('Error', 'Login failed. Please try again.', 'error');
+        },
       });
-    console.log('login llmanndo auth', this.authService.userRole);
   }
 }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { API_URL } from '../../config/config';
-import { catchError, map, of } from 'rxjs';
+import { catchError, map, of, throwError, switchMap, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,29 +18,27 @@ export class AuthService {
   login(email: string, password: string) {
     let URl = API_URL + 'auth/login';
     return this.http.post(URl, { email, password }).pipe(
-      map((resp: any) => {
+      switchMap((resp: any) => {
         if (resp.result) {
           this.token = resp.result;
-          this.getUserLogged(resp.result).subscribe((user: any) => {
-            this.localStorageSave({
-              token: resp.result,
-              id: user.id,
-              role: user.role,
-            });
-          });
-          this.getLocalStorage();
-          console.log('login', resp);
-          console.log('token', this.token);
-          console.log('user', this.userRole);
-          return true;
+          return this.getUserLogged(resp.result).pipe(
+            tap((user: any) => {
+              this.localStorageSave({
+                token: resp.result,
+                id: user.id,
+                role: user.role,
+              });
+              this.getLocalStorage();
+            }),
+            map(() => true)
+          );
         } else {
-          return resp;
+          return of(resp);
         }
       }),
       catchError((err: any) => {
         console.log(err);
-
-        return of(err);
+        return throwError(() => err);
       })
     );
   }
@@ -59,12 +57,6 @@ export class AuthService {
     let URl = API_URL + 'auth/profile';
     return this.http.get(URl, { headers }).pipe(
       map((resp: any) => {
-        console.log('user', resp);
-        if (resp.role === 'admin') {
-          this.router.navigate(['/dashboard']);
-        } else if (resp.role === 'user') {
-          this.router.navigate(['/home']);
-        }
         return resp;
       }),
       catchError((err: any) => {
@@ -104,7 +96,7 @@ export class AuthService {
       }),
       catchError((err: any) => {
         console.log(err);
-        return of(err);
+        return throwError(() => err);
       })
     );
   }

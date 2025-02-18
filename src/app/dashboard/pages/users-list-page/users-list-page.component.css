@@ -2,24 +2,20 @@
   display: block;
 }
 .users-list {
-  @apply grid grid-cols-2  sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-2 gap-2 p-3 w-full;
+  @apply grid grid-cols-2 gap-2 p-3 max-h-[350px] md:max-h-[650px] overflow-y-auto box-border md:w-1/2;
 }
 .user-card {
-  @apply text-wrap flex flex-col mb-10 justify-start col-span-2 overflow-hidden cursor-pointer select-text border hover:shadow-md h-80;
+  @apply text-wrap flex flex-row   overflow-hidden cursor-pointer select-text border hover:shadow-md p-2 box-border h-40;
 }
-@media (min-width: 370px) {
-  .user-card {
-    @apply col-span-1;
-  }
-}
+
 .user-card p {
-  @apply text-ellipsis overflow-hidden whitespace-nowrap w-full text-gray-500 text-sm mt-3 pr-2;
+  @apply text-ellipsis   w-full text-gray-500 text-sm  pr-2;
 }
 .user-card span {
-  @apply font-medium mt-auto;
+  @apply font-medium;
 }
 .user-card img {
-  @apply size-full object-contain h-20 w-full select-text hover:scale-105;
+  @apply object-contain size-8 select-text hover:scale-105;
 }
 
 .form-field {

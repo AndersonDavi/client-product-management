@@ -6,21 +6,27 @@
   @apply w-1/2;
 }
 .product-info {
-  @apply w-1/2 px-10;
+  @apply w-1/2 px-10 flex flex-col  justify-start gap-3 p-3;
 }
 .product-detail p {
-  @apply text-ellipsis overflow-hidden text-gray-500 text-sm mt-3 pr-2;
+  @apply text-ellipsis overflow-hidden text-gray-500 text-sm  pr-2;
 }
 .product-detail span {
-  @apply font-medium mt-auto;
+  @apply font-medium ;
 }
 .product-detail img {
   @apply size-full h-full w-full select-text max-h-[700px] object-contain;
 }
+.product-sizes  {
+  @apply flex gap-2;
+}
+.product-sizes span {
+  @apply p-2 border border-gray-400;
+}
 button {
   @apply bg-black text-white font-bold py-2 px-4;
 }
-input[type='number'] {
+input[type="number"] {
   @apply border border-solid border-primary-200 min-h-10 px-2 selection:border-primary-500 focus:outline-primary-800 hover:bg-primary-200/10 transition-all duration-100;
 }
 .other-products {

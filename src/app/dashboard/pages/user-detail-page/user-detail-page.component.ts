@@ -46,10 +46,6 @@ export class UserDetailPageComponent implements OnInit {
 
   updateUser() {
     if (this.editForm.valid) {
-      console.log(this.editForm.value);
-      console.log(this.user._id);
-      
-      
       this.userService.updateUser(this.user._id, this.editForm.value).subscribe((user) => {
         if (user) {
           Swal.fire('Success', 'User updated successfully!', 'success');
