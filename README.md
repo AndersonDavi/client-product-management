@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://angular.dev/" target="blank"><img src="https://miro.medium.com/v2/resize:fit:1400/1*Klh1l7wkoG6PDPb9A5oCHQ.png" width="120" alt="Angular Logo" /></a>
+</p>
+
 # ProductManagement
 
 ## Requirements
