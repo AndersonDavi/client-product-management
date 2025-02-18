@@ -1,27 +1,68 @@
 # ProductManagement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
+## Requirements
 
-## Development server
+- Node.js (version 20 or higher)
+- Angular CLI (version 17.2.2 or higher)
+- Docker (optional, for container deployment)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Environment Setup
 
-## Code scaffolding
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/product-management.git
+   cd product-management
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+
+3. Create a `.env` file based on the `.env.template` file and configure the necessary environment variables.
+
+## Running Locally
+
+1. Run the following command to start the application in development mode:
+   ```sh
+   npm run start
+   ```
+
+2. Open your browser and navigate to `http://localhost:4200`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Run the following command to build the project:
+   ```sh
+   npm run build
+   ```
 
-## Running unit tests
+2. The build artifacts will be stored in the `dist/` directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Deployment with Docker
 
-## Running end-to-end tests
+1. Build the Docker image:
+   ```sh
+   docker build -t product-management .
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Run the Docker container:
+   ```sh
+   docker run -p 80:80 product-management
+   ```
 
-## Further help
+3. Open your browser and navigate to `http://localhost`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Testing
+
+1. Run unit tests:
+   ```sh
+   npm run test
+   ```
+
+## Project Structure
+
+- `src/`: Source code of the Angular application.
+- `dist/`: Output directory for build artifacts.
+- `Dockerfile`: Configuration file for building the Docker image.
+- `nginx.conf`: Nginx configuration file for serving the Angular application.
