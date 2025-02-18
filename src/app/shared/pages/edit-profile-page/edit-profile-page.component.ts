@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './edit-profile-page.component.html',
   styleUrl: './edit-profile-page.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditProfilePageComponent implements OnInit {
   user: any;
